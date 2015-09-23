@@ -28,8 +28,6 @@
 		 */
 		const PANEL_NAME = 'Google Analytics';
 
-		const URL = SYMPHONY_URL . '/extension/google_analytics_dashboard/';
-
 		private static $CHART_TYPES = array('LINE', 'COLUMN', 'BAR', 'TABLE', 'GEO', 'PIE');
 
 		/* ********* DELEGATES ******* */
@@ -66,7 +64,7 @@
 			$config = $context['config'];
 			$height = isset($config['height']) ? $config['height'] : '225px';
 			$i = new XMLElement('iframe', null, array(
-				'src' => self::URL .'?p=' . $context['id'],
+				'src' => SYMPHONY_URL . '/extension/google_analytics_dashboard/?p=' . $context['id'],
 				'style' => "width:100%;height:$height;",
 				'frameborder' => 'no',
 			));
