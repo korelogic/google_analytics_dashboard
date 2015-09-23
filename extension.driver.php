@@ -28,7 +28,7 @@
 		 */
 		const PANEL_NAME = 'Google Analytics';
 
-		const URL = SYMPHONY_URL '/extension/google_analytics_dashboard/';
+		const URL = SYMPHONY_URL . '/extension/google_analytics_dashboard/';
 
 		private static $CHART_TYPES = array('LINE', 'COLUMN', 'BAR', 'TABLE', 'GEO', 'PIE');
 
