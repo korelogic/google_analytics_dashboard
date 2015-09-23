@@ -18,14 +18,14 @@
 		 * Builds the content view
 		 */
 		public function build() {
-			if (!Symphony::isLoggedIn()) {
-				Administration::instance()->throwCustomError(
-					__('You are not authorised to access this page.'),
-					__('Access Denied'),
-					Page::HTTP_STATUS_UNAUTHORIZED
-				);
-				return;
-			}
+			//if (!Symphony::isLoggedIn()) {
+			//	Administration::instance()->throwCustomError(
+			//		__('You are not authorised to access this page.'),
+			//		__('Access Denied'),
+			//		Page::HTTP_STATUS_UNAUTHORIZED
+			//	);
+			//	return;
+			//}
 			
 			// this loads our classes
 			$ext = Symphony::ExtensionManager()->create('dashboard');
@@ -42,8 +42,9 @@
 			$PANEL_ID = General::sanitize($_REQUEST['p']);
 			$panel = Extension_Dashboard::getPanel($PANEL_ID);
 			$config = unserialize($panel['config']);
+
 			$client = extension_google_analytics_dashboard::createClient($config, $panel['id']);
-			
+					
 			if (!isset($config['at'])) {
 				$config['at'] = $client->getAccessToken();
 			}
